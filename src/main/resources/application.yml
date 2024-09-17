@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: learn-spring-configuration-properties
+  config:
+    import: optional:classpath:.env[.properties]
+
+configurations:
+  server:
+    port: 8080
+    host: localhost
+    parameters:
+      name: "BUGAGA"
+      fallback-name: "KAKA"
+  client:
+    name: "UGA BUGA"
+    timeout-seconds: 5
+  keyValues: '{
+    "price" : "100", 
+    "currency": "USD"
+  }'
+  configPerCurrency: '{
+    "USD": {
+      "name": "USD config",
+      "rate": 10
+    },
+    "EUR": {
+      "name": "EUR config",
+      "rate": 12
+    }
+  }'
+
+custom:
+  env-variable: ${ENV_VAR}
+
+complex-env-var:
+  internal: ${COMPLEX_ENV_VAR}
